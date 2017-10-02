@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block body %}
+<script type="text/javascript">
+  $(function() {
+    var submit_form = function(e) {
+      $.getJSON($SCRIPT_ROOT + '/updateTimes', {}, function(data) {
+        $('#result').text(data.result);
+        $('#wait_times').html(data.table);
+      });
+      return false;
+    };
+    var interval = 1000 * 60 * 1; // where X is your every X minutes
+    setInterval(submit_form, interval);
+  });
+</script>
+<h1>Wait Times</h1>
+<p>
+  <b>Wait times were last updated at: </b>
+  <span id="result">{{result}}</span>
+    <table id='wait_times'>{{table|safe}}</table>
+
+{% endblock %}

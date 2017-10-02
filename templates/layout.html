@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name="myForm" action="" method="post" onsubmit="">
+    <p>
+    <input type="radio" name="options" id="Walk" value="Walk"> Walk </input><br>
+    <input type="radio" name="options" id="Transit" value="Transit"> Transit </input><br>
+    <input type="radio" name="options" id="Car" value="Car"> Car </input><br>
+    </p>
+    <p><input type=submit value=Next></p>
+    </div>
+    {% for message in get_flashed_messages() %}
+      <div class=flash>{{ message }}</div>
+    {% endfor %}
+    {% block body %}{% endblock %}
+  </div>
+</form>
+</body>
+</html>
